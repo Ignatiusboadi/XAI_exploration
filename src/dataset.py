@@ -1,4 +1,4 @@
-"""Dataset module for loading and preprocessing retinal fundus images."""
+# Dataset module for loading and preprocessing retinal fundus images.
 
 import os
 from typing import Callable, Dict, Optional, Tuple

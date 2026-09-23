@@ -5,11 +5,7 @@ import torch.nn as nn
 import torchvision.models as models
 
 
-def create_retinal_model(
-        model_name: str = "resnet50",
-        num_classes: int = 7,
-        pretrained: bool = True
-) -> nn.Module:
+def create_retinal_model(model_name: str = "resnet50", num_classes: int = 7, pretrained: bool = True) -> nn.Module:
     """Factory function to initialize a pre-trained model and adapt its classification head.
 
     Args:
@@ -34,7 +30,7 @@ def create_retinal_model(
         in_features = model.classifier[1].in_features
         model.classifier[1] = nn.Linear(in_features, num_classes)
 
-    elif model_name == "convnext":
+    elif model_name == "convnext_base":
         weights = models.ConvNeXt_Base_Weights.DEFAULT if pretrained else None
         model = models.convnext_base(weights=weights)
         in_features = model.classifier[2].in_features
